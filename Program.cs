@@ -15,10 +15,7 @@ namespace EnthusiasticMoose
             MooseSays("I really am enthusiastic");
 
             // Ask some questions
-            CanadaQuestion();
-            EnthusiasticQuestion();
-            LoveCSharpQuestion();
-            SecretQuestion();
+            Questions();
         }
 
         static void MooseSays(string message)
@@ -72,6 +69,15 @@ namespace EnthusiasticMoose
             {
                 return false;
             }
+        }
+
+        //invokes all of the question methods 
+        static void Questions()
+        {
+            CanadaQuestion();
+            EnthusiasticQuestion();
+            LoveCSharpQuestion();
+            SecretQuestion();
         }
 
         static void CanadaQuestion()
