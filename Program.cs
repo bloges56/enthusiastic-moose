@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EnthusiasticMoose
 {
@@ -14,8 +15,8 @@ namespace EnthusiasticMoose
             MooseSays("H I, I'M  E N T H U S I A S T I C !");
             MooseSays("I really am enthusiastic");
 
-            //invoke questions
-            Questions();
+            //enthusiastic magic 8 ball
+            MagicMoose();
         }
 
         static void MooseSays(string message)
@@ -69,6 +70,58 @@ namespace EnthusiasticMoose
             {
                 return false;
             }
+        }
+
+        //prompts for a question and responds with a random answer
+        static void MagicMoose()
+        {
+            Console.Write("Ask a question: ");
+            string question = Console.ReadLine();
+            
+            //if the user just hits enter, stop looping
+            while(!(String.IsNullOrEmpty(question)))
+            {
+                RandomResponse();
+                Console.Write("Ask a question: ");
+                question = Console.ReadLine();
+            }
+        }
+
+        //prints a random string
+        static void RandomResponse()
+        {
+            //list of responses
+            List<string> responses = new List<string>()
+            {
+                "As I see it, yes.",
+                "Ask again later",
+                "Better not tell you now",
+                "Cannot predict now",
+                "Concentrate and ask again.",
+                "Don't count on it",
+                "It is certain",
+                "It is decidedly so",
+                "Most likely",
+                "My reply is no.",
+                "My sources say no.",
+                "Outlook not so good",
+                "Outlook good",
+                "Reply hazy, try again.",
+                "Signs point to yes.",
+                "Very duobtful.",
+                "Without a doubt",
+                "Yes",
+                "Yes - definitely",
+                "You may rely on it."
+            };
+
+            //get a random response
+            Random r = new Random();
+            int randomNumber = r.Next(0,20);
+            String randomResponse = responses[randomNumber];
+
+            //have the moose say the random response
+            MooseSays(randomResponse);
         }
 
         //invokes all of the question methods 
